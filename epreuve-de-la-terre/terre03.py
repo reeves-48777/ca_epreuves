@@ -1,7 +1,7 @@
 import string
 import sys
 
-if (len(sys.argv) < 2):
+if len(sys.argv) < 2:
     print("vous devez saisir une lettre à partir de laquelle commencer")
     exit(1)
 start = sys.argv[1]

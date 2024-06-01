@@ -1,5 +1,5 @@
 import sys
-if (len(sys.argv) < 2):
+if len(sys.argv) < 2:
     print("Vous devez saisir un nombre à vérifier")
     exit(1)
 
