@@ -5,6 +5,9 @@ if len(sys.argv) < 2 or not sys.argv[1].isdigit():
     exit(1)
 
 number = int(sys.argv[1])
+if (number < 0):
+    print("erreur. le nombre doit être positif")
+    exit()
 
 # solution classique
 # on initialise la racine carrée à 1 pour éviter que la division pète

@@ -12,6 +12,10 @@ for arg in sys.argv[1:]:
 nombre = int(sys.argv[1])
 exposant = int(sys.argv[2])
 
+if exposant < 0:
+    print("erreur.")
+    exit()
+
 resultat = 0
 for i in range(exposant):
     if i == 0:
