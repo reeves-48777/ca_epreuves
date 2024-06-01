@@ -4,7 +4,7 @@ if len(sys.argv) < 2:
     exit(1)
 
 chaine = sys.argv[1]
-if not isinstance(chaine, str):
+if chaine.isdigit():
     print("ce n'est pas une chaîne de caractères")
     exit(1)
 
