@@ -6,28 +6,22 @@ if len(sys.argv) != 4:
 numbers_str = sys.argv[1:]
 numbers = [int(n_str) for n_str in numbers_str]
 
-a = numbers[0]
-b = numbers[1]
-c = numbers[2]
+def swap(a, b):
+    orig_a = a
+    orig_b = b
+    a = orig_b
+    b = orig_a
+    
 
-if a == b == c:
-    print("erreur.")
-    exit()
-
-if a < b:
-    min = a
-    max = b
-else:
-    max = a
-    min = b
-
-if c > min and c < max:
-    mid = c
-elif c < min:
-    mid = min
-    min = c
-else:
-    mid = max
-    max = c
-
-print(mid)
+def intersection_sort(n_array):
+    arr=n_array
+    for i in range(len(arr)):
+        current = arr[i]
+        j = i
+        while j > 0 and arr[j-1] > current:
+            arr[j] = arr[j-1]
+            j -= 1
+        arr[j] = current
+    return arr
+numbers_sorted = intersection_sort(numbers)
+print(numbers_sorted[1])
