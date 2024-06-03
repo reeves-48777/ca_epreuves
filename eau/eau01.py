@@ -1,17 +1,9 @@
-import string
-
-
-def is_valid(n, o):
-    if n[1] < n[0]:
-        return False
-
 def generate_numbers():
     res = list()
-    for i in string.digits:
-        for j in string.digits:
-            for k in string.digits:
-                for l in string.digits:
-                    res.append(f"{i}{j} {k}{l}")
+    for i in range(100):
+        for j in range(100):
+            if i < j:
+                res.append(f"{i:02} {j:02}")
     return ", ".join(res)
 
 print(generate_numbers())
