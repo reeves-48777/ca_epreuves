@@ -4,14 +4,7 @@ if len(sys.argv) != 4:
     exit(1)
 
 numbers_str = sys.argv[1:]
-numbers = [int(n_str) for n_str in numbers_str]
-
-def swap(a, b):
-    orig_a = a
-    orig_b = b
-    a = orig_b
-    b = orig_a
-    
+numbers = [int(n_str) for n_str in numbers_str]    
 
 def intersection_sort(n_array):
     arr=n_array
