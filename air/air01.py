@@ -1,8 +1,35 @@
 import sys
 
+def test():
+    assert split("Crevette magique dans la mer des étoiles", "la") == ["Crevette magique dans ", " mer des étoiles"], 'Le split devrait être correct'
+
+def parse_args():
+    argc = len(sys.argv)
+
+    if argc < 2:
+        print("error")
+        exit(1)
+
+    first_arg = sys.argv[1]
+    second_arg = None
+
+    if first_arg == "--test":
+        test()
+        exit(0)
+    else:
+        if argc < 3:
+            print("error")
+            exit(2)
+        else:
+            second_arg = sys.argv[2]
+            if not first_arg.isdigit() or not second_arg.isdigit():
+                print("error")
+                exit(3)
+    return first_arg, second_arg
+
 def split(tocut, separator):
 	parts=list()
-	
+
 	start=0
 	end=0
 
@@ -20,12 +47,8 @@ def split(tocut, separator):
 	parts.append(tocut[start:end])
 	return parts
 
-if len(sys.argv) < 3 or sys.argv[1].isdigit() or sys.argv[2].isdigit():
-	print("error")
-	exit(1)
 
-string = sys.argv[1]
-separator = sys.argv[2]
+string, separator = parse_args()
 
 for part in split(string, separator):
 	print(part)

@@ -1,15 +1,22 @@
 import sys
 
+def test():
+    assert my_shift(["Michel", "Albert", "Thérèse", "Benoit"]) == ["Albert", "Thérèse", "Benoit", "Michel"], "Les éléments du tableau devraient avoir effectué une rotation vers la gauche"
+
 def parse_args():
     if len(sys.argv) < 2:
         print("error")
         exit(1)
 
-    elements = list()
-    for el in sys.argv[1:]:
-        elements.append(el)
+    if sys.argv[1] == "--test":
+        test()
+        exit(0)
+    else:
+        elements = list()
+        for el in sys.argv[1:]:
+            elements.append(el)
 
-    return elements
+        return elements
 
 def my_shift(elements: list):
     result = list()

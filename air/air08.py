@@ -1,27 +1,38 @@
 import sys
 
+def test():
+    assert sorted_insert([10, 20, 30], [15, 25, 35]) == [10, 15, 20, 25, 30, 35], "Les deux tableaux devraient être fusionnés et triés"
+
 def parse_args():
-    if len(sys.argv) < 2 or not 'fusion' in sys.argv:
+    if len(sys.argv) < 2:
         print("error")
         exit(1)
 
-    try:
-        tab1 = list()
-        tab2 = list()
+    if sys.argv[1] == "--test":
+        test()
+        exit(0)
+    else:
 
-        insert_new = False
-        for el in sys.argv[1:]:
-            if el == "fusion":
-                insert_new = True
-            elif insert_new:
-                tab2.append(int(el))
-            elif not insert_new:
-                tab1.append(int(el))
-    except:
-        print("error")
-        exit(2)
+        if not 'fusion' in sys.argv:
+            print("error")
+            exit(2)
+        else:
+            try:
+                tab1 = list()
+                tab2 = list()
 
-    return tab1, tab2
+                insert_new = False
+                for el in sys.argv[1:]:
+                    if el == "fusion":
+                        insert_new = True
+                    elif insert_new:
+                        tab2.append(int(el))
+                    elif not insert_new:
+                        tab1.append(int(el))
+                return tab1, tab2
+            except:
+                print("error")
+                exit(2)
 
 def sorted_insert(first: list[int], second: list[int]):
     if len(first) == 0:
